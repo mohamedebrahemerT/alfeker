@@ -80,7 +80,7 @@
 
             <div class="inner">
 
-              <h3>0</h3>
+              <h3>{{App\Department::count()}}</h3>
 
 
 
@@ -108,7 +108,7 @@
 
             <div class="inner">
 
-              <h3>0</h3>
+              <h3>{{App\TradeMark::count()}}</h3>
 
 
 
@@ -136,7 +136,7 @@
 
             <div class="inner">
 
-              <h3>0</h3>
+              <h3>{{App\product::count()}}</h3>
 
 
 

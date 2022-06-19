@@ -22,7 +22,7 @@
 
                 @if(auth()->guard('admin')->user()->photo)
 
-            <img src="{{url('/')}}/forentend4/iconified/logo.png" class="img-circle" alt="User Image" width="30px" height="30px">
+            <img src="{{url('/')}}/logo.png" class="img-circle" alt="User Image" width="30px" height="30px">
 
                 @endif
 
@@ -30,7 +30,7 @@
 
                     @if(!auth()->guard('admin')->user()->photo)
 
-            <img src="{{url('/')}}/forentend4/iconified/logo.png" class="img-circle" alt="User Image" width="30px" height="30px">
+            <img src="{{url('/')}}/logo.png" class="img-circle" alt="User Image" width="30px" height="30px">
 
                 @endif
 
@@ -54,7 +54,7 @@
 
                   
 
-            <img src="{{url('/')}}/forentend4/iconified/logo.png" class="img-circle" alt="User Image" width="30px" height="30px">
+            <img src="{{url('/')}}/logo.png" class="img-circle" alt="User Image" width="30px" height="30px">
  
 
 
