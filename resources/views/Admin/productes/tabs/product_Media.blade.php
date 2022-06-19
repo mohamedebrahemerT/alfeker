@@ -18,9 +18,7 @@
 
             maxFile:0,
 
-            maxFilesize:3,
-
-            acceptedFiles:'image/*',
+            
 
             dictDefaultMessage:'<i class="fa fa-camera"></i> '+ '{{trans("admin.main_photo")}}',
 
@@ -152,9 +150,7 @@ this.options.thumbnail.call(this,mock,"{{Storage::url($productes->photo)}}" );
 
             maxFile:0,
 
-            maxFilesize:3,
-
-            acceptedFiles:'image/*',
+            
 
             dictDefaultMessage:'<i class="fa fa-camera"></i> '+ '{{trans("admin.offerphoto")}}',
 
@@ -285,9 +281,7 @@ this.options.thumbnail.call(this,mock,"{{Storage::url($productes->offerphoto)}}"
 
             maxFile:15,
 
-            maxFilesize:3,
-
-            acceptedFiles:'image/*',
+            
 
             dictDefaultMessage:'<i class="fa fa-camera"></i> '+ '{{trans("admin.dropzone_message")}}',
 
