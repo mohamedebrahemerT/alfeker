@@ -1,11 +1,5 @@
 <?php
-
-
-
 namespace App\DataTables;
-
-
-
 use App\Product;
 
 use Yajra\DataTables\Services\DataTable;
@@ -39,12 +33,13 @@ class productesDatatable extends DataTable
          ->addColumn('checkbox', 'Admin.productes.btn.checkbox')
          ->addColumn('department_id', 'Admin.productes.btn.department_id')
          ->addColumn('trad_id', 'Admin.productes.btn.trad_id')
+         ->addColumn('pdf', 'Admin.productes.btn.pdf')
          
 
          ->addColumn('edit', 'Admin.productes.btn.edit')
          ->addColumn('delete', 'Admin.productes.btn.delete')
          ->rawColumns([
-          
+            'pdf',
             'department_id',
             'trad_id',
             'edit',
@@ -319,6 +314,24 @@ class productesDatatable extends DataTable
             'title' => trans('admin.name'),
 
          ]  ,
+        
+         [
+
+            'name'       => 'pdf',
+
+            'data'       => 'pdf',
+
+            'title'      => trans('admin.pdf'),
+
+            'exportable' => false,
+
+            'printable'  => false,
+
+            'orderable'  => false,
+
+            'searchable' => false,
+
+         ],
 
         
          [

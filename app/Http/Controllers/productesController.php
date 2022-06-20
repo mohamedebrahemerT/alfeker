@@ -51,7 +51,7 @@ class productesController extends Controller
 
    {
 
-  
+   
       return $trade->render('Admin.productes.index', ['title' => trans('admin.productes')]);
 
    }
@@ -242,66 +242,27 @@ class productesController extends Controller
 
                {
 
-
-
-                if (request()->has('file'))
-
+ 
+   if (request()->has('file'))
                  {
 
+                    $data['photo']  = up::upload(
+                     [
+                        "file"=>"file",
+                        "upload_type"=> "single",
+                        "delte_file"=> "",
+                        "path" => "productes".$id,
 
-                    if (!empty(request('file')))
-                     {
-                        Storage::delete(request('file'));
-                     }
-        $data['photo'] =request()->file('file')->store("productes".$id);
-   
-                  
-                      
+                     ]
 
-  
+                  ); 
 
-
-
-               $image                   =       $request->file('file');
-        $input['productzoomphoto']      =       time().'.'.$image->extension();
-
-        $destinationPath         =    "productes".$id."/zoom";
-
-            if (!file_exists($destinationPath))
-             {
-            mkdir($destinationPath, 666, true);
-            }
-
-
-
-        $img                     =       ImageResize::make($image->path());
-
-
-    
-
-
-        // --------- [ Resize Image ] ---------------
-
-        $img->resize(810, 810, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($destinationPath.'/'.$input['productzoomphoto']);
-               
-
-          $data['productzoomphoto']=$destinationPath.'/'.$input['productzoomphoto'];
-                    
-                    $productes = Product::find($id);  
-      Product::where('id', $id)->update($data);
+                    $productes = product::find($id);  
+      product::where('id', $id)->update($data);
 
           return $data['photo'];
-
                     
-
                 }
-
-
-
-             
-
                 
 
                }
@@ -372,24 +333,11 @@ class productesController extends Controller
 
                     $productes = Product::find($id);
 
-
-
-                   
-
                         Storage::delete( $productes->photo);
 
                            $productes->photo=null;
 
-
-                           if (file_exists($productes->productzoomphoto))
-             {
-
-               unlink($productes->productzoomphoto);
-             
-            }
-                           $productes->productzoomphoto=null;
-            
-
+  
                         $productes->save();
 
 

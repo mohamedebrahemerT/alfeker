@@ -588,7 +588,7 @@
 
 		'dropzone_message'=>'من فضلك اضغط هنا لسحب او ادراج الصوره ',
 
-		'dictRemoveFile'  => 'حذف هذه الصوره ',
+		'dictRemoveFile'  => 'حذف ',
 
 		'main_photo'=>'البي دي اف ',
 

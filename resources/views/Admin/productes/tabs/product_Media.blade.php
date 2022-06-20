@@ -419,11 +419,18 @@ this.options.thumbnail.call(this,mock,"{{Storage::url($productes->offerphoto)}}"
 
   <div id="menu2" class="tab-pane fade">
 
-      <h3>{{trans('admin.main_photo')}}</h3>
+      <h3>
+          <a href="{{Storage::url($productes->photo)}}" target="_blank"> 
+      {{trans('admin.main_photo')}}
+    </a>
+    </h3>
+ 
 
-
-
-          <h4 style="text-align: center;">{{trans('admin.main_photo')}}</h4>
+          <h4 style="text-align: center;">
+            <a href="{{Storage::url($productes->photo)}}" target="_blank"> 
+          {{trans('admin.main_photo')}}
+          </a>
+        </h4>
 
 
 

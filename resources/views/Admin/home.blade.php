@@ -136,7 +136,7 @@
 
             <div class="inner">
 
-              <h3>{{App\product::count()}}</h3>
+              <h3>{{App\Product::count()}}</h3>
 
 
 
