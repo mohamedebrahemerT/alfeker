@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2022 at 10:44 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Jun 21, 2022 at 02:12 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -149,7 +149,54 @@ CREATE TABLE `departments` (
 --
 
 INSERT INTO `departments` (`id`, `dep_name_ar`, `dep_name_en`, `icon`, `Groupicon`, `description`, `offerscategorized`, `offerscategorizedName_ar`, `offerscategorizedName_en`, `keyword`, `parent`, `created_at`, `updated_at`) VALUES
-(1, 'السيرة', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-18 21:10:28', '2022-06-18 21:10:28');
+(2, 'القرآن الكريم ومتعلقاته', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:29:26', '2022-06-20 20:29:26'),
+(3, 'أهل البيت عليهم السلام', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:31:01', '2022-06-20 20:31:01'),
+(4, 'دراسات', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, '2022-06-20 20:31:37', '2022-06-20 20:31:37'),
+(5, 'السيرة', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, '2022-06-20 20:32:14', '2022-06-20 20:32:14'),
+(6, 'الفضائل', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, '2022-06-20 20:33:18', '2022-06-20 20:33:18'),
+(7, 'العزاء', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, '2022-06-20 20:33:45', '2022-06-20 20:33:45'),
+(8, 'العقائد', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:34:22', '2022-06-20 20:34:22'),
+(9, 'الحديث والرواية', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:35:14', '2022-06-20 20:35:14'),
+(10, 'رد الشبهات', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:35:43', '2022-06-20 20:35:43'),
+(11, 'قضايا الفكر المعاصر', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:36:29', '2022-06-20 20:36:29'),
+(12, 'قضايا اسلامية', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:37:04', '2022-06-20 20:37:04'),
+(13, 'الفقه والأصول', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:37:53', '2022-06-20 20:37:53'),
+(14, 'الأصول', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 13, '2022-06-20 20:38:14', '2022-06-20 20:38:14'),
+(15, 'الفقه', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 13, '2022-06-20 20:38:43', '2022-06-20 20:38:43'),
+(16, 'الدعاء والزيارة', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:39:32', '2022-06-20 20:39:32'),
+(17, 'المنطق والفلسفة', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:40:10', '2022-06-20 20:40:10'),
+(18, 'الأخلاق والعرفان', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:40:49', '2022-06-20 20:40:49'),
+(19, 'علم الرجال والدراية', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:41:25', '2022-06-20 20:41:25'),
+(20, 'القصص والسير الذاتية', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:42:18', '2022-06-20 20:42:18'),
+(21, 'التاريخ والدراسات التاريخية', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:43:37', '2022-06-20 20:43:37'),
+(22, 'اللغة وعلومها', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:44:11', '2022-06-20 20:44:11'),
+(23, 'المجلات العلمية', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:44:51', '2022-06-20 20:44:51'),
+(24, 'مجلة المنهج', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 23, '2022-06-20 20:45:57', '2022-06-20 20:45:57'),
+(25, 'مجلة الاستغراب', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 23, '2022-06-20 20:46:29', '2022-06-20 20:46:29'),
+(26, 'مجلة المحجة', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 23, '2022-06-20 20:47:04', '2022-06-20 20:47:04'),
+(27, 'مجلة دراسات علمية', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 23, '2022-06-20 20:47:44', '2022-06-20 20:47:44'),
+(28, 'مجلة ميراث حديث شيعة', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 23, '2022-06-20 20:48:53', '2022-06-20 20:48:53'),
+(29, 'مجلة تراث كربلاء', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 23, '2022-06-20 20:50:00', '2022-06-20 20:50:00'),
+(30, 'مجلة تراثنا', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 23, '2022-06-20 20:50:42', '2022-06-20 20:50:42'),
+(31, 'مجلة الدليل', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 23, '2022-06-20 20:51:23', '2022-06-20 20:51:23'),
+(32, 'مجلة الخزانة', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 23, '2022-06-20 20:51:54', '2022-06-20 20:51:54'),
+(33, 'مجلة الفكر الإلكترونية', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 23, '2022-06-20 20:53:51', '2022-06-20 20:53:51'),
+(35, 'مجلة فقه أهل البيت', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 23, '2022-06-20 20:55:09', '2022-06-20 20:55:09'),
+(36, 'الفن ودواوين الشعر', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:55:59', '2022-06-20 20:55:59'),
+(37, 'الروايات الأدبية', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:56:23', '2022-06-20 20:56:23'),
+(38, 'علم النفس والإجتماع', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:56:54', '2022-06-20 20:56:54'),
+(39, 'معارف عامة', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:57:19', '2022-06-20 20:57:19'),
+(40, 'موسوعات', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:57:47', '2022-06-20 20:57:47'),
+(41, 'المعاجم', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:58:16', '2022-06-20 20:58:16'),
+(42, 'البرامج الدينية', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:58:38', '2022-06-20 20:58:38'),
+(43, 'مكتبة الأطفال', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 20:59:39', '2022-06-20 20:59:39'),
+(44, 'لغات أخرى', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-20 21:00:05', '2022-06-20 21:00:05'),
+(45, 'Persian فارسي', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 44, '2022-06-20 21:00:43', '2022-06-20 21:00:43'),
+(46, 'Bengali - بنغالي', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 44, '2022-06-20 21:01:24', '2022-06-20 21:01:24'),
+(48, 'English - انجليزي', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 44, '2022-06-20 21:02:30', '2022-06-20 21:02:30'),
+(49, 'Indonesian - اندونيسي', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 44, '2022-06-20 21:04:09', '2022-06-20 21:04:09'),
+(50, 'French - الفرنسي', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 44, '2022-06-20 21:04:42', '2022-06-20 21:04:42'),
+(51, 'Other', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 44, '2022-06-20 21:05:03', '2022-06-20 21:05:03');
 
 -- --------------------------------------------------------
 
@@ -569,7 +616,7 @@ CREATE TABLE `productes` (
 --
 
 INSERT INTO `productes` (`id`, `title_name_ar`, `content_name_ar`, `title_name_en`, `content_name_en`, `photo`, `productzoomphoto`, `photo2`, `department_id`, `trad_id`, `manuf_id`, `color_id`, `size`, `size_id`, `currency_id`, `price`, `Wholesaleprice`, `WholesalepriceMinNum`, `stock`, `start_at`, `end_at`, `start_offer_at`, `end_offer_at`, `price_offer`, `other_data`, `weight`, `weight_id`, `status`, `featured`, `reason`, `NewOrSaleOrNormalOrRatio`, `TypeOfImg`, `Merchantcode`, `productstatus`, `add`, `stat`, `tax`, `admin_id`, `alyMarketNeddAprove`, `discriminationForhome`, `discriminationForDpartment`, `Storepremsion`, `surfID`, `alymarketcode`, `VideoExst`, `video`, `offerExst`, `offer_precendage`, `tag_id`, `Commission`, `vat`, `vat_value`, `created_at`, `updated_at`) VALUES
-(23, 'sadasd', NULL, NULL, NULL, 'productes23/kmDi3EP1SUTBPjrGm6rpx3nPvBWrEmAvJXxvCvPc.pdf', NULL, NULL, 1, 12, NULL, NULL, NULL, NULL, NULL, '0.000', '0.00', NULL, 0, NULL, NULL, NULL, NULL, '0.000', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 1, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, '2022-06-19 20:31:59', '2022-06-20 11:44:26');
+(23, 'sadasd', NULL, NULL, NULL, 'productes23/uu5p0uqCsjLYM9T5UqdzFNwWS5ugXHoB4Lf8G7Qp.pdf', NULL, NULL, 1, 12, NULL, NULL, NULL, NULL, NULL, '0.000', '0.00', NULL, 0, NULL, NULL, NULL, NULL, '0.000', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 1, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, '2022-06-19 20:31:59', '2022-06-20 20:09:49');
 
 -- --------------------------------------------------------
 
@@ -590,7 +637,106 @@ CREATE TABLE `trade_marks` (
 --
 
 INSERT INTO `trade_marks` (`id`, `name_ar`, `logo`, `created_at`, `updated_at`) VALUES
-(12, 'كمال السيد', NULL, '2022-06-18 21:09:42', '2022-06-18 21:09:42');
+(13, 'ABBAS AL EID', NULL, '2022-06-20 21:07:13', '2022-06-20 21:07:13'),
+(14, 'Abbas Ahmad Albostani', NULL, '2022-06-20 21:08:27', '2022-06-20 21:08:27'),
+(15, 'Abdul Hamid Yudat Az Zahar', NULL, '2022-06-20 21:09:19', '2022-06-20 21:09:19'),
+(16, 'Ahmad Mohammadi', NULL, '2022-06-20 21:09:47', '2022-06-20 21:09:47'),
+(17, 'Allamah Ali AlQurani', NULL, '2022-06-20 21:10:12', '2022-06-20 21:10:12'),
+(18, 'Alsayed Abdulmajid Al Mirdamadi', NULL, '2022-06-20 21:10:35', '2022-06-20 21:10:35'),
+(19, 'Alwi husein', NULL, '2022-06-20 21:11:14', '2022-06-20 21:11:14'),
+(20, 'Ayat Allah Nasir Makarim Shirazi', NULL, '2022-06-20 21:12:03', '2022-06-20 21:12:03'),
+(21, 'Ayatollah Sayyed Ali AL-Sistani', NULL, '2022-06-20 21:13:37', '2022-06-20 21:13:37'),
+(22, 'Ayatullah Husain Mazhahiri', NULL, '2022-06-20 21:14:41', '2022-06-20 21:14:41'),
+(23, 'Ayatullah Mortaza Mutahhari', NULL, '2022-06-20 21:15:08', '2022-06-20 21:15:08'),
+(24, 'Ayatullah Sayyid Ali Sistani', NULL, '2022-06-20 21:17:53', '2022-06-20 21:17:53'),
+(25, 'Ayatullah Syihabudin al-Mar\'asyi', NULL, '2022-06-20 21:18:43', '2022-06-20 21:18:43'),
+(26, 'Ayatullah makarim alshirazi , Ayatullah ja\'far alsubhani', NULL, '2022-06-20 21:19:11', '2022-06-20 21:19:11'),
+(27, 'Dr Fakhri Mashkoor', NULL, '2022-06-20 21:19:42', '2022-06-20 21:19:42'),
+(28, 'Dr Muhammed Tijani As-samawi', NULL, '2022-06-20 21:20:06', '2022-06-20 21:20:06'),
+(29, 'Imam Ali Ebn AL Hossein Zain AL Abedine', NULL, '2022-06-20 21:20:21', '2022-06-20 21:20:21'),
+(30, 'Imam Muhammad AL-Husainy', NULL, '2022-06-20 21:20:38', '2022-06-20 21:20:38'),
+(31, 'Imam Muhammad Shirazi', NULL, '2022-06-20 21:21:15', '2022-06-20 21:21:15'),
+(32, 'Majid Massoudi', NULL, '2022-06-20 21:21:33', '2022-06-20 21:21:33'),
+(33, 'Mohamad jawad chiri', NULL, '2022-06-20 21:22:17', '2022-06-20 21:22:17'),
+(34, 'Muhammad Ali Zenjibari', NULL, '2022-06-20 21:23:08', '2022-06-20 21:23:08'),
+(35, 'Muhammed Ridha Abdul Amir Anshari', NULL, '2022-06-20 21:24:07', '2022-06-20 21:24:07'),
+(36, 'Nasir Makarim Syirazi', NULL, '2022-06-20 21:24:34', '2022-06-20 21:24:34'),
+(38, 'Por Muhammad Ali Shomali', NULL, '2022-06-20 21:25:54', '2022-06-20 21:25:54'),
+(39, 'Prof Abulqasim Gourji', NULL, '2022-06-20 21:26:20', '2022-06-20 21:26:20'),
+(40, 'SAYYID IBNU THAWUS', NULL, '2022-06-20 21:26:48', '2022-06-20 21:26:48'),
+(41, 'Sayed Mohammed Hossein Tabtabai', NULL, '2022-06-20 21:27:08', '2022-06-20 21:27:08'),
+(42, 'Sayed Moustafa Alqazwini', NULL, '2022-06-20 21:27:24', '2022-06-20 21:27:24'),
+(43, 'Sayid Muhammad Radawi', NULL, '2022-06-20 21:27:42', '2022-06-20 21:27:42'),
+(44, 'Sayyed Mohammead Hussein Tabatabai', NULL, '2022-06-20 21:28:44', '2022-06-20 21:28:44'),
+(45, 'Sayyed Mojtaba Musavi Lari', NULL, '2022-06-20 21:29:20', '2022-06-20 21:29:20'),
+(46, 'Sayyed Riyadh Al-hakeem', NULL, '2022-06-20 21:29:36', '2022-06-20 21:29:36'),
+(47, 'Sayyid Abdul Husain Dastghaib Shirazi', NULL, '2022-06-20 21:29:50', '2022-06-20 21:29:50'),
+(48, 'Sayyid Ali Reza', NULL, '2022-06-20 21:30:49', '2022-06-20 21:30:49'),
+(49, 'Sayyid Fadhel Hosseini Milani', NULL, '2022-06-20 21:31:12', '2022-06-20 21:31:12'),
+(50, 'Sayyid Muhammad Rizvi', NULL, '2022-06-20 21:31:43', '2022-06-20 21:31:43'),
+(51, 'Syaikh Ja\'far Hadi', NULL, '2022-06-20 21:32:01', '2022-06-20 21:32:01'),
+(52, 'alfeker.net', NULL, '2022-06-20 21:32:22', '2022-06-20 21:32:22'),
+(53, 'd. fadhel alfaraj', NULL, '2022-06-20 21:32:46', '2022-06-20 21:32:46'),
+(54, 'ibrahim Amini', NULL, '2022-06-20 21:33:01', '2022-06-20 21:33:01'),
+(55, 'آثار الشيخ بهجت', NULL, '2022-06-20 21:33:22', '2022-06-20 21:33:22'),
+(56, 'آرمنسترونغ', NULL, '2022-06-20 21:34:22', '2022-06-20 21:34:22'),
+(57, 'آقا جمال خوانساري', NULL, '2022-06-20 21:37:54', '2022-06-20 21:37:54'),
+(58, 'آقا جمال خوانساري ، سيد محمد باقر ميرداماد', NULL, '2022-06-20 21:38:12', '2022-06-20 21:38:12'),
+(59, 'آية الله المشكيني', NULL, '2022-06-20 21:38:48', '2022-06-20 21:38:48'),
+(60, 'أ.د عامر عبد زيد الوائلي ، هاشم الميلاني', NULL, '2022-06-20 21:39:05', '2022-06-20 21:39:05'),
+(61, 'أبان بن عثمان الأحمر', NULL, '2022-06-20 21:39:22', '2022-06-20 21:39:22'),
+(62, 'أبو اسحاق إبراهيم بن نوبخت', NULL, '2022-06-20 21:39:39', '2022-06-20 21:39:39'),
+(63, 'أبو الحسن محمد علي مكي', NULL, '2022-06-20 21:39:56', '2022-06-20 21:39:56'),
+(64, 'أبو الفضل الإسلامي', NULL, '2022-06-20 21:41:14', '2022-06-20 21:41:14'),
+(65, 'أبو الفضل ساجدي', NULL, '2022-06-20 21:41:31', '2022-06-20 21:41:31'),
+(66, 'أبو المعالي محمد بن محمد بن إبراهيم الكلباسي', NULL, '2022-06-20 21:41:48', '2022-06-20 21:41:48'),
+(67, 'أبو جعفر بن احمد بن علي القمي الايلاقي', NULL, '2022-06-20 21:42:07', '2022-06-20 21:42:07'),
+(68, 'أبو علي محمد بن همام بن سهل الكاتب الأسكافي', NULL, '2022-06-20 21:42:49', '2022-06-20 21:42:49'),
+(69, 'أبو محمد الساعدي', NULL, '2022-06-20 21:43:05', '2022-06-20 21:43:05'),
+(70, 'أبو محمد النعيمي', NULL, '2022-06-20 21:43:29', '2022-06-20 21:43:29'),
+(71, 'أبو مخنف لوط بن يحيى الغامدي الأزدي', NULL, '2022-06-20 21:44:04', '2022-06-20 21:44:04'),
+(72, 'أبو منصور محمد بن أحمد الأزهري', NULL, '2022-06-20 21:44:20', '2022-06-20 21:44:20'),
+(73, 'أبوالحسن بن عبدالله البكري', NULL, '2022-06-20 21:44:39', '2022-06-20 21:44:39'),
+(74, 'أبوالفضل حافظيان البابلي', NULL, '2022-06-20 21:44:57', '2022-06-20 21:44:57'),
+(75, 'أبوجعفر أحمد المكي', NULL, '2022-06-20 21:45:29', '2022-06-20 21:45:29'),
+(76, 'أبوجعفر محمد بن عبدالله الاسكافي', NULL, '2022-06-20 21:45:50', '2022-06-20 21:45:50'),
+(77, 'أبومحمد روزبهان بقلي فسايي شيرازي', NULL, '2022-06-20 21:46:07', '2022-06-20 21:46:07'),
+(78, 'أبى عبدالرحمن إسماعيل بن أحمد الحيرىّ النيسابوري', NULL, '2022-06-20 21:46:25', '2022-06-20 21:46:25'),
+(79, 'أبى مخنف', NULL, '2022-06-20 21:46:46', '2022-06-20 21:46:46'),
+(80, 'أبي الحسن أبي ذر محمد بن يوسف العامري النيسابوري', NULL, '2022-06-20 21:48:28', '2022-06-20 21:48:28'),
+(81, 'أبي الحسن بن علي المسعودي', NULL, '2022-06-20 21:49:05', '2022-06-20 21:49:05'),
+(82, 'أبي الحسن علي بن إبراهيم القمي', NULL, '2022-06-20 21:49:24', '2022-06-20 21:49:24'),
+(83, 'أبي الحسن علي بن الحسين بن بابويه القمي (والد الشيخ الصدوق)', NULL, '2022-06-20 21:49:38', '2022-06-20 21:49:38'),
+(84, 'أبي الحسن علي بن عبد العزيز بن أبي محمد الخليعي الموصلي الحلي', NULL, '2022-06-20 21:49:56', '2022-06-20 21:49:56'),
+(85, 'أبي الحسن علي بن مهدي الطبري المامطيري', NULL, '2022-06-20 21:50:16', '2022-06-20 21:50:16'),
+(86, 'أبي السعادات أسعد بن عبدالقاهر الغروي الأصفهاني', NULL, '2022-06-20 21:50:44', '2022-06-20 21:50:44'),
+(87, 'أبي المؤيد الموفق بن أحمد المكي', NULL, '2022-06-20 21:51:04', '2022-06-20 21:51:04'),
+(88, 'أبي المجد الشيخ محمد الرضا النجفي الأصفهاني', NULL, '2022-06-20 21:51:18', '2022-06-20 21:51:18'),
+(89, 'أبي جعفر محمد بن أمير الحاج الحسيني', NULL, '2022-06-20 21:51:36', '2022-06-20 21:51:36'),
+(90, 'أبي جعفر محمد بن جرير بن رستم الطبري', NULL, '2022-06-20 21:51:54', '2022-06-20 21:51:54'),
+(91, 'أبي جعفر محمد بن علي بن شهرأشوب السروي المازندراني', NULL, '2022-06-20 21:52:17', '2022-06-20 21:52:17'),
+(92, 'أبي عبد الله محمد بن علي بن الحسن العلوي الشجري', NULL, '2022-06-20 21:52:35', '2022-06-20 21:52:35'),
+(93, 'أبي محمد يعسوب الدين رستكار الجويباري', NULL, '2022-06-20 21:52:57', '2022-06-20 21:52:57'),
+(94, 'أبي نصر الفارابي', NULL, '2022-06-20 21:53:14', '2022-06-20 21:53:14'),
+(95, 'أبي هفّان عبدالله بن أحمد المهزمي', NULL, '2022-06-20 21:53:32', '2022-06-20 21:53:32'),
+(96, 'أثير الدين الأبهري', NULL, '2022-06-20 21:53:50', '2022-06-20 21:53:50'),
+(97, 'أحد أعلام أهل السنة من القرنين السادس والسابع', NULL, '2022-06-20 21:54:08', '2022-06-20 21:54:08'),
+(98, 'أحد أعلام الإمامية القرن الثامن', NULL, '2022-06-20 21:54:24', '2022-06-20 21:54:24'),
+(99, 'أحد علماء القرن العاشر الهجري', NULL, '2022-06-20 21:54:49', '2022-06-20 21:54:49'),
+(100, 'أحمد الازرقي', NULL, '2022-06-20 21:55:15', '2022-06-20 21:55:15'),
+(101, 'أحمد العلي', NULL, '2022-06-20 21:55:36', '2022-06-20 21:55:36'),
+(102, 'أحمد الهاشمي', NULL, '2022-06-20 21:57:15', '2022-06-20 21:57:15'),
+(103, 'أحمد الواسطي', NULL, '2022-06-20 21:57:58', '2022-06-20 21:57:58'),
+(104, 'أحمد الواعظي', NULL, '2022-06-20 21:58:17', '2022-06-20 21:58:17'),
+(105, 'أحمد بن إبراهيم بن مصطفى الهاشمي الأزهري المصري', NULL, '2022-06-20 21:58:32', '2022-06-20 21:58:32'),
+(106, 'أحمد بن الحسين الغضائري الواسطي البغدادي', NULL, '2022-06-20 21:58:47', '2022-06-20 21:58:47'),
+(107, 'أحمد بن عبدالرضا البصري', NULL, '2022-06-20 21:59:06', '2022-06-20 21:59:06'),
+(108, 'أحمد بن عبدالله الكوزه كناني', NULL, '2022-06-20 21:59:24', '2022-06-20 21:59:24'),
+(109, 'أحمد بن علي بن عبد القادر تقي الدين المقريزي', NULL, '2022-06-20 21:59:51', '2022-06-20 21:59:51'),
+(110, 'أحمد بن محمد بن مسكويه', NULL, '2022-06-20 22:00:05', '2022-06-20 22:00:05'),
+(111, 'أحمد بن يحيى بن ناقة الكوفي', NULL, '2022-06-20 22:02:37', '2022-06-20 22:02:37'),
+(112, 'أحمد حبيب قصير العاملي', NULL, '2022-06-20 22:02:56', '2022-06-20 22:02:56'),
+(113, 'أحمد راسم النفيس', NULL, '2022-06-20 22:03:52', '2022-06-20 22:03:52');
 
 -- --------------------------------------------------------
 
@@ -750,7 +896,7 @@ ALTER TABLE `admin_groups`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `files`
@@ -792,7 +938,7 @@ ALTER TABLE `productes`
 -- AUTO_INCREMENT for table `trade_marks`
 --
 ALTER TABLE `trade_marks`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT for table `useruploadpdf`
@@ -811,44 +957,10 @@ ALTER TABLE `visitlogs`
 --
 
 --
--- Constraints for table `admins`
---
-ALTER TABLE `admins`
-  ADD CONSTRAINT `admins_city_id_foreign` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `admins_country_id_foreign` FOREIGN KEY (`country_id`) REFERENCES `countries` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `admins_stat_id_foreign` FOREIGN KEY (`stat_id`) REFERENCES `states` (`id`) ON DELETE CASCADE;
-
---
 -- Constraints for table `departments`
 --
 ALTER TABLE `departments`
   ADD CONSTRAINT `departments_parent_foreign` FOREIGN KEY (`parent`) REFERENCES `departments` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `menuecontroll`
---
-ALTER TABLE `menuecontroll`
-  ADD CONSTRAINT `menuecontroll_admin_id_foreign` FOREIGN KEY (`admin_id`) REFERENCES `admins` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `models`
---
-ALTER TABLE `models`
-  ADD CONSTRAINT `models_department_id_foreign` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `productes`
---
-ALTER TABLE `productes`
-  ADD CONSTRAINT `productes_admin_id_foreign` FOREIGN KEY (`admin_id`) REFERENCES `admins` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `productes_color_id_foreign` FOREIGN KEY (`color_id`) REFERENCES `colors` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `productes_currency_id_foreign` FOREIGN KEY (`currency_id`) REFERENCES `countries` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `productes_department_id_foreign` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `productes_manuf_id_foreign` FOREIGN KEY (`manuf_id`) REFERENCES `manufacturers` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `productes_size_id_foreign` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `productes_tag_id_foreign` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `productes_trad_id_foreign` FOREIGN KEY (`trad_id`) REFERENCES `trade_marks` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `productes_weight_id_foreign` FOREIGN KEY (`weight_id`) REFERENCES `weights` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
