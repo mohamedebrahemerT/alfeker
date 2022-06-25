@@ -374,111 +374,40 @@ public function delete_imgofferphoto_dropzon_product($id)
                }
 
 
-   public function upload_img($id)
-
+     public function upload_img($id)
    {
-              
 
-     
            if (request()->has('file'))
-
             {
-
                $file     =request()->file('file');
-
                $size     =$file->getSize();
-
                $mum_type =$file->getMimeType();
-
                $name     =$file->getClientOriginalName();
-
                $hashName =$file->hashName();
-
-
 
                  $file->store("productes".$id);
 
-
-                 ///////////////////////////////////////////////
-   $image                   =       $request->file('file');
-        $input['zoomaftereid']      =       time().'.'.$image->extension();
-
-        $destinationPath         =    "productes".$id."/zoomaftereid";
-
-            if (!file_exists($destinationPath))
-             {
-            mkdir($destinationPath, 666, true);
-            }
-
-
-
-        $img                     =       ImageResize::make($image->path());
-
-
-    
-
-
-        // --------- [ Resize Image ] ---------------
-
-        $img->resize(810, 810, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($destinationPath.'/'.$input['zoomaftereid']);
-               
-
-          $zoomaftereid=$destinationPath.'/'.$input['zoomaftereid'];
-                   
-
-
-
-      
-
-
-                 //////////////////////////////////////////////
-
-
-
               
 
-
-
                    $add=filess::create([
-
-                'name'        => $zoomaftereid,
-
+                'name'        => $name,
                 'size'        => $size ,
-
                 'file'        => $hashName ,
-
                 'path'        => 'productes'.$id ,
-
                 'full_file'   => 'productes'.$id.'/'.$hashName ,
-
                 'mum_type'    => $mum_type,
-
                 'file_type'   => 'productes', 
-
                 'relation_id' => $id,
-
-
 
                ]);
 
-
-
               $fid=$add->id;
-
               return 'hotel tamam';
-
-
 
             return Response(['status'=>true,'id'=>$fid],200);
 
-
-
           }
-
       
-
    }
 
 

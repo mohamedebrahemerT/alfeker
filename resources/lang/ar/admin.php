@@ -586,7 +586,7 @@
 
 		'product_Media' => 'صور الصنف',
 
-		'dropzone_message'=>'من فضلك اضغط هنا لسحب او ادراج الصوره ',
+		'dropzone_message'=>' البي دي اف الفرعي ',
 
 		'dictRemoveFile'  => 'حذف ',
 

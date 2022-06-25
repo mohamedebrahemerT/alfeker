@@ -437,6 +437,7 @@ this.options.thumbnail.call(this,mock,"{{Storage::url($productes->offerphoto)}}"
       <div class="dropzone" id="dropzone_main_photo"> </div>
 
       <br>
+      <div class="dropzone" id="dropzone_file_uploads"> </div>
 
         
 

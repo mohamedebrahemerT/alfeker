@@ -122,7 +122,7 @@ class product extends Model
 
      public function filesss() {
 
-      return $this->hasMany('App\filess', 'relation_id', 'id')->where('file_type','productes')->orderBy('id','desc');
+      return $this->hasMany('App\filess', 'relation_id', 'id')->where('file_type','productes');
 
     }
 

@@ -633,7 +633,7 @@ Route::get('admin/affiliate', 'affiliateInadminController@affiliateData');
 
        Route::resource('admin/myproductes', 'myproductesController');
 
-   Route::post('admin/upload/img/{id}', 'myproductesController@upload_img');
+   //Route::post('admin/upload/img/{id}', 'myproductesController@upload_img');
 
    //Route::post('admin/delete_img_dropzon', 'myproductesController@delete_img');
 
