@@ -70,8 +70,8 @@ class scraperController extends Controller
 
  
 
-             for ($i=1; $i < 97 ; $i++) 
-             {  
+            for ($i=1; $i < 97 ; $i++) 
+            {  
            
         $crawler = Goutte::request('GET', "https://alfeker.net/library.php?page=".$i."");
     $crawler->filter('.box-excerpt')->each(function ($node ) use ($books) 
@@ -92,11 +92,13 @@ class scraperController extends Controller
 
          $this->createdata($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc);
     
-                     dump($bookName);
+                    // dump($bookName);
 
       });
 
-        }      
+        }
+
+        return 'done' ;     
                      
        
       
