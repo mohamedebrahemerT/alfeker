@@ -147,7 +147,7 @@ class scraperController extends Controller
           $product->trad_id=  $trad_id ;
           $product->save() ;
 
-           // $this->downloadThumbnail($bookImgSrc, $product->id);
+          $this->downloadThumbnail($bookImgSrc, $product->id);
             return 'done';
     }
 
