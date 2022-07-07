@@ -23,6 +23,14 @@
     return 'Application cache cleared';
 });
 
+    Route::get('/queue-work', function() {
+   $exitCode = Artisan::call('queue:work');
+    return 'queue-worked';
+});
+
+
+ 
+
 Route::get('/Storage-Linked', function () {
     \Illuminate\Support\Facades\Artisan::call('storage:link');
     return 'Storage Linked';

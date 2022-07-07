@@ -1,90 +1,47 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Jobs;
 
-use Illuminate\Http\Request;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 use Goutte;
 use Illuminate\Support\Str;
 use Storage;
 use App\Product;
 use App\Department;
 use App\TradeMark;
-use App\Jobs\ProcessPodcast;
 
-class scraperController extends Controller
+class ProcessPodcast implements ShouldQueue
 {
-    //
-    private $results=array();
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    public $i;
 
-    public function Dispatching( )
+    /**
+     * Create a new job instance.
+     *
+     * @return void
+     */
+    public function __construct($i)
     {
-         for ($i=1; $i <= 97 ; $i++) 
-            {  
-                ProcessPodcast::dispatch($i);
-            }
-        return 'done' ;     
-
+        //
+        $this->i = $i;
     }
 
-    public function scraper( )
+    /**
+     * Execute the job.
+     *
+     * @return void
+     */
+    public function handle()
     {
+        //
+         $books= [];
 
- 
-
-
-
-   /* 
-    // get all div
-  $page = Goutte::request('GET', 'https://alfeker.net/library.php?page=1');
-    $page->filter('.box-excerpt')->each(function($item)
-            {
-             dump($item->text());
-            }); 
-*/
-
-              // get book name
-
- /* $page = Goutte::request('GET', 'https://alfeker.net/library.php?page=1');
-    $page->filter('.box-excerpt > h2 > a')->each(function($item)
-            {
-             dump($item->text());
-            }); */
-
-
-              // get author name
-   /*$page = Goutte::request('GET', 'https://alfeker.net/library.php?page=1');
-    $page->filter('.box-excerpt > nav  > ul > li:first-child  > span')->each(function($item)
-            {
-             dump($item->text());
-            }); */
-
-/*
-              // get department name
-   $page = Goutte::request('GET', 'https://alfeker.net/library.php?page=1');
-    $page->filter('.box-excerpt > nav  > ul > li:last-child  > span')->each(function($item)
-            {
-             dump($item->text());
-            });  
- */
-
-
-    // get all div
-  /*$page = Goutte::request('GET', 'https://alfeker.net/library.php?page=1');
-    $page->filter('.box-excerpt  > img ')->each(function($item)
-            {
-                
-     echo '<img src="' . $item->attr('src') . '" alt="' . $item->attr('alt') . '">';
-            }); */
-
-
-               $books= [];
-
- 
-
-            for ($i=1; $i <= 97 ; $i++) 
-            {  
-           
-        $crawler = Goutte::request('GET', "https://alfeker.net/library.php?page=".$i."");
+        $crawler = Goutte::request('GET', "https://alfeker.net/library.php?page=".$this->i."");
     $crawler->filter('.box-excerpt')->each(function ($node ) use ($books) 
     { 
           $baseurl="https://alfeker.net/";
@@ -107,17 +64,10 @@ class scraperController extends Controller
 
       });
 
-        }
-
-        return 'done' ;     
-                     
-       
-      
-             
-    
+        
     }
 
-    public function createdata($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc )
+       public function createdata($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc )
     {
           $Department =  Department::where('dep_name_ar', $bookDepartmentName)->first();
        $TradeMark =  TradeMark::where('name_ar', $bookAuthorName)->first();
@@ -158,7 +108,7 @@ class scraperController extends Controller
           $product->trad_id=  $trad_id ;
           $product->save() ;
 
-         // $this->downloadThumbnail($bookImgSrc, $product->id);
+           $this->downloadThumbnail($bookImgSrc, $product->id);
             return 'done';
     }
 
@@ -177,6 +127,5 @@ $name = "/productes".$id.'/'.substr($url, strrpos($url, '/') + 1);
      
         return 'done';
     }
-
-
+    
 }
