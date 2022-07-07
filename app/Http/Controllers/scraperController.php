@@ -70,7 +70,7 @@ class scraperController extends Controller
 
  
 
-            for ($i=1; $i < 97 ; $i++) 
+            for ($i=1; $i <= 97 ; $i++) 
             {  
            
         $crawler = Goutte::request('GET', "https://alfeker.net/library.php?page=".$i."");
