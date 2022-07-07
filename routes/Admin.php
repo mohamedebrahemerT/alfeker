@@ -512,6 +512,7 @@
 
 
       Route::resource('admin/productes', 'productesController');
+     Route::get('/admin/scraper','scraperController@scraper');
 
    Route::post('admin/upload/img/{id}', 'productesController@upload_img');
 

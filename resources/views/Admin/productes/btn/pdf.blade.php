@@ -2,16 +2,38 @@
 $product=App\product::where('id',$id)->first();
 @endphp
 
-  @if ($photo)
-  <a href="{{Storage::url($photo)}}" target="_blank">  البي دي اف    
-@if($product->filesss()->count() > 0)
- 1
-@endif
-  
+<!-- Button trigger modal -->
+<a type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$product->id}}">
+    @if ($photo)
+   <img src="{{Storage::url($photo)}}"  >
+     @endif
 </a>
-  @endif
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+       
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         @if ($photo)
+   <img src="{{Storage::url($photo)}}"  >
+     @endif
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         
+      </div>
+    </div>
+  </div>
+</div>
 
+ 
+  
 <br>
   @foreach ($product->filesss()->get() as $key =>  $file) 
   <a href="{{Storage::url($file->full_file)}}" target="_blank">  البي دي اف    {{$key+ 2}}</a>

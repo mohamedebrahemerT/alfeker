@@ -177,6 +177,7 @@ return [
              Collective\Html\HtmlServiceProvider::class,
                  Yajra\DataTables\DataTablesServiceProvider::class,
                         'Intervention\Image\ImageServiceProvider',
+                                Weidner\Goutte\GoutteServiceProvider::class, // [1] This will register the Package in the laravel echo system
     ],
 
     /*
@@ -236,6 +237,7 @@ return [
            'Html' => Collective\Html\HtmlFacade::class,
         "up"=>App\Http\Controllers\upload::class,
                'ImageResize' => 'Intervention\Image\Facades\Image',
+                       'Goutte' => Weidner\Goutte\GoutteFacade::class, // [2] It will register as an alias for the Goutte facade
            
    
 
