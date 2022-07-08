@@ -98,11 +98,10 @@ class ProcessPodcast implements ShouldQueue
 
            $this->downloadThumbnail($bookImgSrc, $product->id);
 
-
+ 
          $bookdetails = Goutte::request('GET',   $bookpreviewUrl);
-          $baseurl="https://alfeker.net/";
         // $bigbookImgSrc = $baseurl. $bookdetails->filter('.img > img')->attr('src');
-         // $this->downloadThumbnail2($bigbookImgSrc, $product->id);
+          //$this->downloadThumbnail2($bigbookImgSrc, $product->id);
 
              $bookdetails->filter('.statustime')->each(function ($zzz)  
            { 
