@@ -122,7 +122,7 @@ class ProcessPodcast implements ShouldQueue
 
             } catch (\Exception $e) 
             {   
-                dump('there eorr');
+                
 
             }
 

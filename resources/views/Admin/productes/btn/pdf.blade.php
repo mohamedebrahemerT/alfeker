@@ -33,12 +33,12 @@ $product=App\product::where('id',$id)->first();
         
          @endphp
          <a target="_blank" href="{{$link}}"> 
-   <img src="{{Storage::url($photo2)}}"  >
+   <img src="{{Storage::url($photo2)}}" style="width:550px;height: 600px;" >
    </a>
      @endif
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('admin.Close')}}</button>
          
       </div>
     </div>
@@ -49,7 +49,7 @@ $product=App\product::where('id',$id)->first();
   
 <br>
   @foreach ($product->filesss()->get() as $key =>  $file) 
-  <a  target="_blank" href="{{$file->full_file}}" target="_blank">  البي دي اف    {{$key+ 2}}</a>
+  <a  target="_blank" href="{{$file->full_file}}" target="_blank">  البي دي اف    {{$key+ 1}}</a>
 <br>
 
 
