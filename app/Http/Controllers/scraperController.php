@@ -20,7 +20,30 @@ class scraperController extends Controller
     {
          for ($i=1; $i <= 97 ; $i++) 
             {  
-                ProcessPodcast::dispatch($i);
+                 //
+         $books= [];
+
+        $crawler = Goutte::request('GET', "https://alfeker.net/library.php?page=".$i."");
+    $crawler->filter('.box-excerpt')->each(function ($node ) use ($books) 
+    { 
+          $baseurl="https://alfeker.net/";
+          //bookName
+          $bookName = $node->filter('.box-excerpt > h2 > a')->text();
+         //bookAuthorName
+          $bookAuthorName = $node->filter('.box-excerpt > nav  > ul > li:first-child  > span')->text();
+          //bookDepartmentName
+          $bookDepartmentName = $node->filter('.box-excerpt > nav  > ul > li:last-child  > span')->text();
+          //bookUrl
+          $bookUrl = $node->filter('.box-excerpt > h2 > a')->getUri();
+          //bookImgSrc
+           $bookImgSrc = $baseurl.  $node->filter('.box-excerpt > img')->attr('src'); 
+           //bookpreviewUrl
+         $bookpreviewUrl =$baseurl. $node->filter('.box-excerpt > h2 > a')->attr('href');
+
+          ProcessPodcast::dispatch($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc); 
+
+      });
+               
             }
         return 'done' ;     
 

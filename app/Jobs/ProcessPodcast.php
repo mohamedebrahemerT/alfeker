@@ -18,17 +18,24 @@ use App\TradeMark;
 class ProcessPodcast implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    public $i;
+
+    public $bookDepartmentName;
+    public $bookAuthorName;
+    public $bookName;
+    public $bookImgSrc;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($i)
+    public function __construct($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc)
     {
         //
-        $this->i = $i;
+        $this->bookDepartmentName = $bookDepartmentName;
+        $this->bookAuthorName = $bookAuthorName;
+        $this->bookName = $bookName;
+        $this->bookImgSrc = $bookImgSrc;
     }
 
     /**
@@ -38,33 +45,7 @@ class ProcessPodcast implements ShouldQueue
      */
     public function handle()
     {
-        //
-         $books= [];
-
-        $crawler = Goutte::request('GET', "https://alfeker.net/library.php?page=".$this->i."");
-    $crawler->filter('.box-excerpt')->each(function ($node ) use ($books) 
-    { 
-          $baseurl="https://alfeker.net/";
-          //bookName
-          $bookName = $node->filter('.box-excerpt > h2 > a')->text();
-         //bookAuthorName
-          $bookAuthorName = $node->filter('.box-excerpt > nav  > ul > li:first-child  > span')->text();
-          //bookDepartmentName
-          $bookDepartmentName = $node->filter('.box-excerpt > nav  > ul > li:last-child  > span')->text();
-          //bookUrl
-          $bookUrl = $node->filter('.box-excerpt > h2 > a')->getUri();
-          //bookImgSrc
-           $bookImgSrc = $baseurl.  $node->filter('.box-excerpt > img')->attr('src'); 
-           //bookpreviewUrl
-         $bookpreviewUrl =$baseurl. $node->filter('.box-excerpt > h2 > a')->attr('href'); 
-
-         $this->createdata($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc);
-    
-                    // dump($bookName);
-
-      });
-
-        
+       $this->createdata($this->bookDepartmentName, $this->bookAuthorName, $this->bookName, $this->bookImgSrc);
     }
 
        public function createdata($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc )
