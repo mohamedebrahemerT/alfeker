@@ -20,7 +20,7 @@ $product=App\product::where('id',$id)->first();
         </button>
       </div>
       <div class="modal-body">
-         @if ($photo2)
+         @if ($photo)
          @php
          if($product->filesss()->first())
          {
