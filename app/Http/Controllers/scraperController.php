@@ -40,11 +40,7 @@ class scraperController extends Controller
            $bookImgSrc = $baseurl.  $node->filter('.box-excerpt > img')->attr('src'); 
            //bookpreviewUrl
          $bookpreviewUrl =$baseurl. $node->filter('.box-excerpt > h2 > a')->attr('href');
-
-         $bookdetails = Goutte::request('GET',   $bookpreviewUrl);
-         $bigbookImgSrc = $baseurl. $bookdetails->filter('.img > img')->attr('src');
-
-          ProcessPodcast::dispatch($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc,$bigbookImgSrc,$bookpreviewUrl); 
+          ProcessPodcast::dispatch($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc,$bookpreviewUrl); 
 
       });
                

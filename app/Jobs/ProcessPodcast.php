@@ -24,7 +24,6 @@ class ProcessPodcast implements ShouldQueue
     public $bookAuthorName;
     public $bookName;
     public $bookImgSrc;
-    public $bigbookImgSrc;
     public $bookpreviewUrl;
 
 
@@ -40,7 +39,6 @@ class ProcessPodcast implements ShouldQueue
         $this->bookAuthorName = $bookAuthorName;
         $this->bookName = $bookName;
         $this->bookImgSrc = $bookImgSrc;
-        $this->bigbookImgSrc = $bigbookImgSrc;
         $this->bookpreviewUrl = $bookpreviewUrl;
     }
 
@@ -51,10 +49,10 @@ class ProcessPodcast implements ShouldQueue
      */
     public function handle()
     {
-       $this->createdata($this->bookDepartmentName, $this->bookAuthorName, $this->bookName, $this->bookImgSrc, $this->bigbookImgSrc,$this->bookpreviewUrl);
+       $this->createdata($this->bookDepartmentName, $this->bookAuthorName, $this->bookName, $this->bookImgSrc,$this->bookpreviewUrl);
     }
 
-       public function createdata($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc ,$bigbookImgSrc,$bookpreviewUrl)
+       public function createdata($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc ,$bookpreviewUrl)
     {
           $Department =  Department::where('dep_name_ar', $bookDepartmentName)->first();
        $TradeMark =  TradeMark::where('name_ar', $bookAuthorName)->first();
@@ -99,9 +97,12 @@ class ProcessPodcast implements ShouldQueue
 
 
            $this->downloadThumbnail($bookImgSrc, $product->id);
-         $this->downloadThumbnail2($bigbookImgSrc, $product->id);
 
+/*
          $bookdetails = Goutte::request('GET',   $bookpreviewUrl);
+         $bigbookImgSrc = $baseurl. $bookdetails->filter('.img > img')->attr('src');
+          $this->downloadThumbnail2($bigbookImgSrc, $product->id);
+
              $bookdetails->filter('.statustime')->each(function ($zzz)  
            { 
 
@@ -130,6 +131,7 @@ class ProcessPodcast implements ShouldQueue
     
                   
            }); 
+             */
 
             return 'done';
     }
