@@ -99,9 +99,9 @@ class ProcessPodcast implements ShouldQueue
 
 
            $this->downloadThumbnail($bookImgSrc, $product->id);
-         //  $this->downloadThumbnail2($bigbookImgSrc, $product->id);
+         $this->downloadThumbnail2($bigbookImgSrc, $product->id);
 
-          /*  $bookdetails = Goutte::request('GET',   $bookpreviewUrl);
+         $bookdetails = Goutte::request('GET',   $bookpreviewUrl);
              $bookdetails->filter('.statustime')->each(function ($zzz)  
            { 
 
@@ -129,7 +129,7 @@ class ProcessPodcast implements ShouldQueue
      
     
                   
-           }); */
+           }); 
 
             return 'done';
     }
