@@ -32,7 +32,7 @@ class ProcessPodcast implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc,$bigbookImgSrc,$bookpreviewUrl)
+    public function __construct($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc,$bookpreviewUrl)
     {
         //
         $this->bookDepartmentName = $bookDepartmentName;
@@ -52,7 +52,7 @@ class ProcessPodcast implements ShouldQueue
        $this->createdata($this->bookDepartmentName, $this->bookAuthorName, $this->bookName, $this->bookImgSrc,$this->bookpreviewUrl);
     }
 
-       public function createdata($bookDepartmentName,$bookAuthorName,$bookName,$bookpreviewUrl)
+       public function createdata($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc ,$bookpreviewUrl)
     {
           $Department =  Department::where('dep_name_ar', $bookDepartmentName)->first();
        $TradeMark =  TradeMark::where('name_ar', $bookAuthorName)->first();
