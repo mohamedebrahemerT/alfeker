@@ -33,7 +33,7 @@ $product=App\product::where('id',$id)->first();
         
          @endphp
          <a target="_blank" href="{{$link}}"> 
-   <img src="{{Storage::url($photo)}}" style="width:550px;height: 600px;" >
+   <img src="{{Storage::url($photo)}}"  >
    </a>
      @endif
       </div>
