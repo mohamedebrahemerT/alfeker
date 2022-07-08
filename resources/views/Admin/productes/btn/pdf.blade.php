@@ -20,8 +20,21 @@ $product=App\product::where('id',$id)->first();
         </button>
       </div>
       <div class="modal-body">
-         @if ($photo)
-   <img src="{{Storage::url($photo)}}"  >
+         @if ($photo2)
+         @php
+         if($product->filesss()->first())
+         {
+           $link= $product->filesss()->first()->full_file;
+         }
+         else
+         {
+             $link='#';
+         }
+        
+         @endphp
+         <a target="_blank" href="{{$link}}"> 
+   <img src="{{Storage::url($photo2)}}"  >
+   </a>
      @endif
       </div>
       <div class="modal-footer">
@@ -36,7 +49,7 @@ $product=App\product::where('id',$id)->first();
   
 <br>
   @foreach ($product->filesss()->get() as $key =>  $file) 
-  <a href="{{Storage::url($file->full_file)}}" target="_blank">  البي دي اف    {{$key+ 2}}</a>
+  <a  target="_blank" href="{{$file->full_file}}" target="_blank">  البي دي اف    {{$key+ 2}}</a>
 <br>
 
 

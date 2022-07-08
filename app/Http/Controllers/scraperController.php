@@ -9,6 +9,7 @@ use Storage;
 use App\Product;
 use App\Department;
 use App\TradeMark;
+use App\filess;
 use App\Jobs\ProcessPodcast;
 
 class scraperController extends Controller
@@ -40,7 +41,10 @@ class scraperController extends Controller
            //bookpreviewUrl
          $bookpreviewUrl =$baseurl. $node->filter('.box-excerpt > h2 > a')->attr('href');
 
-          ProcessPodcast::dispatch($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc); 
+         $bookdetails = Goutte::request('GET',   $bookpreviewUrl);
+         $bigbookImgSrc = $baseurl. $bookdetails->filter('.img > img')->attr('src');
+
+          ProcessPodcast::dispatch($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc,$bigbookImgSrc,$bookpreviewUrl); 
 
       });
                
@@ -104,9 +108,9 @@ class scraperController extends Controller
 
  
 
-            for ($i=1; $i <= 97 ; $i++) 
-            {  
-           
+           // for ($i=1; $i <= 97 ; $i++) 
+           // {  
+           $i=1;
         $crawler = Goutte::request('GET', "https://alfeker.net/library.php?page=".$i."");
     $crawler->filter('.box-excerpt')->each(function ($node ) use ($books) 
     { 
@@ -122,22 +126,85 @@ class scraperController extends Controller
           //bookImgSrc
            $bookImgSrc = $baseurl.  $node->filter('.box-excerpt > img')->attr('src'); 
            //bookpreviewUrl
-         $bookpreviewUrl =$baseurl. $node->filter('.box-excerpt > h2 > a')->attr('href'); 
+         $bookpreviewUrl =$baseurl. $node->filter('.box-excerpt > h2 > a')->attr('href');
 
-         $this->createdata($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc);
+                          //dump($bookName);
+
+            $bookdetails = Goutte::request('GET',   $bookpreviewUrl);
+         $bigbookImgSrc = $baseurl. $bookdetails->filter('.img > img')->attr('src');
+         
+         //$lookatbookImgSrc = $baseurl. $bookdetails->filter('.text > img')->attr('src');
+           
+                       
+ 
+
+     $book= $this->createdata($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc);
+     session()->put('book_id',$book->id);
+
+     $pdfarray =[];
+   $bookdetails->filter('.statustime')->each(function ($zzz)  
+           { 
+
+            try {
+                $pdf =$zzz->filter('.statustime > nav > ul > li > span > a')->attr('href');
+
+                 if (starts_with($pdf, 'http')) 
+                 {
+                     $id=session('book_id');
+                 
+             
+                $add=filess::create([
+                'path'        =>  $pdf  ,
+                'full_file'   => $pdf,
+                'relation_id' => $id,
+                'file_type' =>'productes'
+
+               ]); 
+
+                 dump($add);
+               
+
+                 }
+
+            } catch (\Exception $e) 
+            {   
+                dump('there eorr');
+
+            }
+
+     
     
-                    // dump($bookName);
+                  
+           });
+    
+                 //dump($book);
 
       });
 
-        }
+     
 
-        return 'done' ;     
+        return 'done 2' ;     
                      
        
       
              
     
+    }
+
+     public function uploadpdf($pdf,$id)
+    {
+          $contents = file_get_contents($pdf,$id);
+$name = "/productes".$id.'/'.substr($pdf, strrpos($pdf, '/') + 1);
+   Storage::put($name, $contents);
+                     $add=filess::create([
+                'path'        =>  $pdf  ,
+                'full_file'   => $name,
+                'relation_id' => $id,
+
+               ]);
+
+        return  $add;
+
     }
 
     public function createdata($bookDepartmentName,$bookAuthorName,$bookName,$bookImgSrc )
@@ -182,7 +249,7 @@ class scraperController extends Controller
           $product->save() ;
 
          // $this->downloadThumbnail($bookImgSrc, $product->id);
-            return 'done';
+            return  $product;
     }
 
 
