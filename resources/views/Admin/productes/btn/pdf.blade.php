@@ -44,7 +44,7 @@ $product=App\product::where('id',$id)->first();
         
          @endphp
          <a target="_blank" href="{{$link}}"> 
-   <img src="{{Storage::url($photo2)}}" style="width:550px;height: 500px;" >
+   <img src="{{$photo2}}" style="width:550px;height: 500px;" >
    </a>
      @endif
      <br>

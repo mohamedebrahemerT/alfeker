@@ -85,12 +85,17 @@ class ProcessPodcast implements ShouldQueue
 
 
        }
+
+         $bookdetails = Goutte::request('GET',   $bookpreviewUrl);
+          $baseurl="https://alfeker.net/";
+        $bigbookImgSrc = $baseurl. $bookdetails->filter('.img > img')->attr('src');
         
           $product = new product ;
           $product->title_name_ar=  $bookName ;
           $product->content_name_ar=  $bookName ;
           $product->department_id=  $department_id ;
           $product->trad_id=  $trad_id ;
+          $product->photo2=  $bigbookImgSrc ;
           $product->save() ;
 
      session()->put('book_id',$product->id);
@@ -99,10 +104,8 @@ class ProcessPodcast implements ShouldQueue
            $this->downloadThumbnail($bookImgSrc, $product->id);
 
  
-        $bookdetails = Goutte::request('GET',   $bookpreviewUrl);
-          $baseurl="https://alfeker.net/";
-        $bigbookImgSrc = $baseurl. $bookdetails->filter('.img > img')->attr('src');
-          $this->downloadThumbnail2($bigbookImgSrc, $product->id);
+      
+          //$this->downloadThumbnail2($bigbookImgSrc, $product->id);
 
              $bookdetails->filter('.statustime')->each(function ($zzz)  
            { 
