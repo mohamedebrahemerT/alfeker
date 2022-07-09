@@ -517,10 +517,9 @@
 
    Route::post('admin/upload/img/{id}', 'productesController@upload_img');
 
-
+      Route::get('admin/productesnew', 'productesController@productesnew');
 
  
-
 
 
    Route::post('admin/delete_img_dropzon', 'productesController@delete_img');

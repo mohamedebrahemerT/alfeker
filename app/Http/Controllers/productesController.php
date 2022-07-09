@@ -47,6 +47,17 @@ class productesController extends Controller
 
     */
 
+
+   public function productesnew()
+
+   {
+
+          $productes=Product::paginate(10);
+ 
+    return view('admin.productes.productesnew',compact('productes'));
+
+   }
+
    public function index(productesDatatable $trade)
 
    {

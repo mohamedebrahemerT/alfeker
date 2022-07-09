@@ -72,7 +72,7 @@ class productesDatatable extends DataTable
 
    {
 
-      return Product::query()->orderBy('id','desc');
+      return Product::query();
 
    }
 
