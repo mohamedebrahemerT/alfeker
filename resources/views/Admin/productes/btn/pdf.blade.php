@@ -31,7 +31,7 @@ $product=App\product::where('id',$id)->first();
         </button>
       </div>
       <div class="modal-body">
-         @if ($photo)
+         @if ($photo2)
          @php
          if($product->filesss()->first())
          {
@@ -44,7 +44,7 @@ $product=App\product::where('id',$id)->first();
         
          @endphp
          <a target="_blank" href="{{$link}}"> 
-   <img src="{{Storage::url($photo)}}" style="width:100px;height: 100px;" >
+   <img src="{{Storage::url($photo2)}}" style="width:550px;height: 500px;" >
    </a>
      @endif
      <br>
