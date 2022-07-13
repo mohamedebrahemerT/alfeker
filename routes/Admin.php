@@ -1738,7 +1738,7 @@ Route::get('Coupons/massremove', 'CouponsController@massremove')->name('Coupons.
                
  
 Route::get('download', function () {
-   $url = 'http://download1351.mediafire.com/7236ial91j9g/380r3kfd7ph6u4k/%D8%AC%D8%B9%D9%81%D8%B1+%D8%A7%D9%84%D8%B5%D8%A7%D8%AF%D9%82+%28%D8%B9%29+%D8%B9%D8%B1%D8%B6+%D9%88%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9+-+%D8%A3%D8%AD%D9%85%D8%AF+%D9%85%D8%BA%D9%86%D9%8A%D8%A9.pdf';
+   $url = 'https://drive.google.com/file/d/1J3gds-iu-2pwfhguco3f9NQUrKJXVPbq/view?usp=sharing';
 
    // Create a stream
    $opts = [
