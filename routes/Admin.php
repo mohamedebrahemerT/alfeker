@@ -1737,3 +1737,25 @@ Route::get('Coupons/massremove', 'CouponsController@massremove')->name('Coupons.
 
                
  
+Route::get('download', function () {
+   $url = 'http://download1351.mediafire.com/7236ial91j9g/380r3kfd7ph6u4k/%D8%AC%D8%B9%D9%81%D8%B1+%D8%A7%D9%84%D8%B5%D8%A7%D8%AF%D9%82+%28%D8%B9%29+%D8%B9%D8%B1%D8%B6+%D9%88%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9+-+%D8%A3%D8%AD%D9%85%D8%AF+%D9%85%D8%BA%D9%86%D9%8A%D8%A9.pdf';
+
+   // Create a stream
+   $opts = [
+       "http" => [
+           "method" => "GET",
+           "header" => "Host: www.te.com\r\n"
+               . "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:71.0) Gecko/20100101 Firefox/71.0\r\n"
+               . "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\n"
+               . "Accept-Language: en-US,en;q=0.5\r\n"
+               . "Accept-Encoding: gzip, deflate, br\r\n"
+       ],
+   ];
+
+   $context = stream_context_create($opts);
+   $data = file_get_contents($url, false, $context);
+
+   \Storage::disk('public')->put('filename.pdf', $data);
+
+   return 'OK';
+});
