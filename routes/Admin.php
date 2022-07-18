@@ -513,7 +513,10 @@
 
       Route::resource('admin/productes', 'productesController');
      Route::get('/admin/scraper','scraperController@scraper');
+
      Route::get('/admin/Dispatching','scraperController@Dispatching');
+
+     Route::get('/admin/Dispatchingpdf','scraperController@Dispatchingpdf');
 
    Route::post('admin/upload/img/{id}', 'productesController@upload_img');
 
@@ -1738,7 +1741,7 @@ Route::get('Coupons/massremove', 'CouponsController@massremove')->name('Coupons.
                
  
 Route::get('download', function () {
-   $url = 'https://drive.google.com/file/d/1J3gds-iu-2pwfhguco3f9NQUrKJXVPbq/view?usp=sharing';
+   $url = 'https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=5223955&DocType=Customer+Drawing&DocLang=English';
 
    // Create a stream
    $opts = [
@@ -1758,4 +1761,18 @@ Route::get('download', function () {
    \Storage::disk('public')->put('filename.pdf', $data);
 
    return 'OK';
+});
+
+Route::get('/zz', function () 
+{
+    $url="http://download1351.mediafire.com/7236ial91j9g/380r3kfd7ph6u4k/%D8%AC%D8%B9%D9%81%D8%B1+%D8%A7%D9%84%D8%B5%D8%A7%D8%AF%D9%82+%28%D8%B9%29+%D8%B9%D8%B1%D8%B6+%D9%88%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9+-+%D8%A3%D8%AD%D9%85%D8%AF+%D9%85%D8%BA%D9%86%D9%8A%D8%A9.pdf";
+   $id=1;
+   $contents = file_get_contents($url);
+   $name = "/productes".$id.'/'.'new'.substr($url, strrpos($url, '/') + 1);
+   Storage::put($name, $contents);
+  
+   return 'done';
+    
+
+      
 });

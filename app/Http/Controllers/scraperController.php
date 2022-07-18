@@ -11,11 +11,52 @@ use App\Department;
 use App\TradeMark;
 use App\filess;
 use App\Jobs\ProcessPodcast;
-
+use App\Jobs\getpdf;
+use GuzzleHttp\Client;
+use GuzzleHttp\TransferStats;
 class scraperController extends Controller
 {
     //
     private $results=array();
+
+
+    public function  Dispatchingpdf()
+    {
+             $Products=Product::get();
+         foreach ($Products as $key => $product) 
+         {
+
+            if($product->filesss()->first())
+         {
+                  $filess=   $product->filesss()->first();
+            $url=$filess->full_file;
+          
+           $crawler = Goutte::request('GET',$filess->full_file);
+
+           dd( $crawler );
+
+           $crawler->filter()->each(function ( $baseHref  ) 
+    { 
+
+   dd( $baseHref  );
+  });
+         
+           
+   $id=$filess->relation_id ;
+   $contents = file_get_contents( $sadasd);
+   $name = "/productes".$id.'/'.'new'.substr($url, strrpos($url, '/') + 1);
+   Storage::put($name, $contents);
+   $filess->path=$name;
+   $filess->save();
+            
+         }
+         
+             
+         }
+
+         return 'done getpdf';
+       
+    }
 
     public function Dispatching( )
     {
